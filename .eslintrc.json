@@ -1,0 +1,66 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "prettier",
+        "plugin:react/recommended",
+        "eslint:recommended",
+        "eslint-config-prettier",
+        "plugin:react/jsx-runtime"
+    ],
+    "overrides": [],
+    "plugins": ["react", "eslint-plugin-prettier", "eslint-plugin-react"],
+
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
+    },
+    "parserOptions": {
+        "parser": "@babel/eslint-parser",
+        "requireConfigFile": false,
+        "ecmaVersion": "latest",
+        "sourceType": "module", // Allows for the use of imports
+        "ecmaFeatures": { "jsx": true }
+    },
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-pascal-case": 0,
+
+        "react/function-component-definition": "off",
+        "react/destructuring-assignment": [0],
+        "react/display-name": "off",
+        "react/prop-types": 0,
+
+        "prettier/prettier": ["error", { "endOfLine": "auto" }],
+        "no-trailing-whitespace": 0,
+        "eqeqeq": ["error", "always"],
+        "camelcase": [
+            "error",
+            {
+                "properties": "never"
+                // "allow": ["aa_bb"]
+            }
+        ],
+
+        "import/prefer-default-export": "off",
+        "import/no-unresolved": "off",
+
+        "no-use-before-define": "off",
+        "no-underscore-dangle": "off",
+        "no-restricted-syntax": "off",
+        "no-array-constructor": "off",
+        "no-unused-vars": "off",
+        "no-new-object": "off",
+        "no-plusplus": "off",
+        "prefer-const": "off",
+        "no-console": "off",
+        "no-shadow": "off"
+    }
+}
