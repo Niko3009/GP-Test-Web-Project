@@ -6,10 +6,11 @@ import styles from './styles/Modals.module.css'
 
 export default function AppealDescription({
     appealData,
+    formatDate,
     isAppealDescriptionOpen,
     setAppealDescriptionOpen,
 }) {
-    const { date, autor, type, description } = appealData
+    const { autor, type, description } = appealData
 
     const ruType = availableTypes[type] || 'Неизвестен'
 
@@ -21,7 +22,7 @@ export default function AppealDescription({
             <div className={classNames(styles.wrapper)}>
                 <div className={styles['modal-string']}>
                     <Label>{'Дата'}</Label>
-                    <Text>{date}</Text>
+                    <Text>{formatDate}</Text>
                 </div>
 
                 <div className={styles['modal-string']}>

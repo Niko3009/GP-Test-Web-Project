@@ -1,32 +1,35 @@
 import { useState } from 'react'
-
-import Table from './Table'
+import { Provider } from 'store'
+import { usePostNewAppealMutation } from 'store/api'
 import AppealAddingForm from './Modals/AppealAddingForm'
+import Table from './Table'
 
 import 'global/styles/global-styles.css'
 import styles from './styles/App.module.css'
 
 export default function App() {
     return (
-        <div className={styles.wrapper}>
-            <TableWindow />
-        </div>
+        <Provider>
+            <div className={styles.wrapper}>
+                <TableWindow />
+            </div>
+        </Provider>
     )
 }
 
 function TableWindow() {
     const [isAppealFormOpen, setAppealFormOpen] = useState()
+    const [postNewAppealMutation] = usePostNewAppealMutation()
 
     const postNewAppeal = (appealData) => {
         const postData = { ...appealData }
         postData.date = new Date()
-        console.log(postData)
+        postNewAppealMutation(postData)
     }
 
     return (
         <div className={styles['table-window']}>
             <ControlPanel controlActions={{ setAppealFormOpen }} />
-
             <Table />
 
             <AppealAddingForm

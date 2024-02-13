@@ -46,6 +46,13 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  transition: all 500ms;
+  cursor: url(/public/cursor/custom-pointer.svg), pointer;
+}
+@media (hover: hover) {
+  .table-window__table-titles-cell:hover {
+    box-shadow: inset 0 12px 12px #30b224;
+  }
 }
 .table-window__table-titles-filter-icon {
   height: 100%;
@@ -57,7 +64,8 @@
   width: 100%;
   min-width: -moz-min-content;
   min-width: min-content;
-  border: 1px solid #959CA9;
+  border-top: 1px solid #959CA9;
+  border-bottom: 1px solid #959CA9;
   overflow-y: scroll;
 }
 .table-window__table-content-row {

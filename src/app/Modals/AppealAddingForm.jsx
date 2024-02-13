@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import getDate from 'date-and-time'
 import classNames from 'classnames'
 import { availableTypes } from 'app/assets'

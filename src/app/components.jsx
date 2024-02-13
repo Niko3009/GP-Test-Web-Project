@@ -2,15 +2,20 @@ import classNames from 'classnames'
 
 import Filter from 'shared/icons/Filter'
 
-import styles from './styles/App.module.css'
 import { availableStatuses, availableTypes } from './assets'
 
-export function TableTitle({ children }) {
+import styles from './styles/App.module.css'
+
+export function TableTitle({ children, name, setSort, sort }) {
+    const isActiveSort = name === sort
     return (
-        <div className={styles['table-window__table-titles-cell']}>
+        <div
+            className={styles['table-window__table-titles-cell']}
+            onClick={() => setSort(!isActiveSort ? name : '')}
+        >
             <p>{children}</p>
             <div className={styles['table-window__table-titles-filter-icon']}>
-                <Filter styleClass={'white'} />
+                <Filter styleClass={isActiveSort ? 'green' : 'white'} />
             </div>
         </div>
     )
@@ -30,7 +35,7 @@ export function TableCell({ children, className }) {
 
 export function TypeTableCell({ type }) {
     const ruType = availableTypes[type]
-    return <TableCell>{ruType || 'Неизвестен'}</TableCell>
+    return <TableCell>{ruType || 'Не известен'}</TableCell>
 }
 
 export function StatusTableCell({ status }) {
@@ -41,7 +46,15 @@ export function StatusTableCell({ status }) {
                 [styles[status]]: ruStatus,
             })}
         >
-            {ruStatus || 'Неизвестен'}
+            {ruStatus || 'Не известен'}
         </TableCell>
+    )
+}
+
+export function QueryMessage({ children }) {
+    return (
+        <div className={classNames(styles['query-message'])}>
+            <p>{children}</p>
+        </div>
     )
 }

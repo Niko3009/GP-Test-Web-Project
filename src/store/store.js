@@ -1,16 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 
-import pageApi from '@/store/api/page'
-import pageSlice from '@/store/slices/page'
+import api from 'store/api'
+import slices from 'store/slices'
 
 export const reducer = combineReducers({
-  [pageApi.reducerPath]: pageApi.reducer,
-  [pageSlice.name]: pageSlice.reducer,
+    [api.reducerPath]: api.reducer,
+    [slices.name]: slices.reducer,
 })
 
 export const middleware = (getMiddleware) =>
-  getMiddleware({ serializableCheck: false }).concat([pageApi.middleware])
+    getMiddleware({ serializableCheck: false }).concat([api.middleware])
 
 export const store = configureStore({ reducer, middleware })
 export default store
