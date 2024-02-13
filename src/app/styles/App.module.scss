@@ -1,0 +1,56 @@
+@import '../../global/styles/assets/all.scss';
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 40px 10px;
+}
+
+.table-window {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  padding: 80px 20px;
+
+  background: $white-color;
+  display: flex;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+
+  &__control {
+    &-panel {
+      width: 100%;
+      height: 40px;
+      min-height: max-content;
+      overflow: auto;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 24px;
+      color: $blue-color;
+    }
+
+    &-action {
+      cursor: $custom-pointer;
+
+      @include mouse-hover {
+        & {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@import './App_tablet.module.scss';
+
+@import './Table.module.scss';

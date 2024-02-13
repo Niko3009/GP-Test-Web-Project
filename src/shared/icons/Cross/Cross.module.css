@@ -1,0 +1,34 @@
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  white-color: #FFFFFF;
+  blue-color: #2451B2;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue {
+  color: #2451B2;
+  stroke: #2451B2;
+}
+
+.white {
+  color: #FFFFFF;
+  stroke: #FFFFFF;
+}/*# sourceMappingURL=Cross.module.css.map */

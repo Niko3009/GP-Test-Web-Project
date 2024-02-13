@@ -1,0 +1,54 @@
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  white-color: #FFFFFF;
+  blue-color: #2451B2;
+}
+
+:export {
+  hiding-duration-ms: 500;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5019607843);
+  transition: all 500ms;
+  overflow: hidden;
+}
+
+.modal {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.hidden, .hidden * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  touch-action: none;
+  pointer-events: none;
+}/*# sourceMappingURL=Modal.module.css.map */

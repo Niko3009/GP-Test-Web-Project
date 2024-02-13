@@ -1,0 +1,56 @@
+$screen: "only screen";
+
+$min-width-device: 420px;
+$max-width-device: 5920px;
+
+// 
+
+$mobile-start: $min-width-device;
+$mobile-end: 768px;
+
+$tablet-start: $mobile-end;
+$tablet-end: 1024px;
+
+$laptop-start: $tablet-end;
+$laptop-end: 1200px;
+
+$wide-laptop-start: $laptop-end;
+$wide-laptop-end: 1440px;
+
+$desktop-start: $wide-laptop-end;
+$desktop-end: 1700px;
+
+$ultra-start: $desktop-end;
+$ultra-end: $max-width-device;
+
+// 
+
+$mobile: "#{$screen} and ( min-width: #{$mobile-start})";
+$mobile-only: "#{$screen} and ( min-width: #{$mobile-start}) and (max-width: #{$mobile-end})";
+
+$tablet: "#{$screen} and (min-width: #{$tablet-start})";
+$tablet-only: "#{$screen} and (min-width: #{$tablet-start}) and (max-width: #{$tablet-end})";
+$non-tablet: "#{$screen} and (max-width: #{$tablet-start})";
+
+$laptop: "#{$screen} and (min-width: #{$laptop-start})";
+$laptop-only: "(#{$laptop}) and (max-width: #{$laptop-end})";
+$non-laptop: "#{$screen} and (max-width: #{$laptop-start})";
+
+$wide-laptop: "#{$screen} and (min-width: #{$wide-laptop-start})";
+$wide-laptop-only: "#{$screen} and (min-width: #{$wide-laptop-start}) and (max-width: #{$wide-laptop-end})";
+$non-wide-laptop: "#{$screen} and (max-width: #{$wide-laptop-start})";
+
+$desktop: "#{$screen} and (min-width: #{$desktop-start})";
+$desktop-only: "#{$screen} and (min-width: #{$desktop-start}) and (max-width: #{$desktop-end})";
+$non-desktop: "#{$screen} and (max-width: #{$desktop-start})";
+
+$ultra: "#{$screen} and (min-width: #{$ultra-start})";
+$non-ultra: "#{$screen} and (max-width: #{$ultra-start})";
+
+// 
+
+:export {
+    mobile: $mobile;
+    tablet: $tablet;
+    desktop: $desktop;
+}

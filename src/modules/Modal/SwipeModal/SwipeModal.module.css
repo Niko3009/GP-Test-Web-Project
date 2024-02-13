@@ -1,0 +1,91 @@
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  white-color: #FFFFFF;
+  blue-color: #2451B2;
+}
+
+:export {
+  hiding-duration-ms: 500;
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.window {
+  position: absolute;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  max-height: 90%;
+  min-height: 10px;
+  padding: 0px;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background-color: #FFFFFF;
+  transition: all 500ms;
+  transform: translateY(0);
+}
+.window.hidden {
+  transform: translateY(100%);
+}
+.window.hidden, .window.hidden * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  touch-action: none;
+  pointer-events: none;
+}
+
+.scrollWrapper {
+  height: auto;
+  width: 100%;
+  overflow: auto;
+}
+
+.content {
+  height: auto;
+  width: 100%;
+  padding: 0 24px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #2451B2;
+  overflow: hidden;
+}
+
+.tap {
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #2451B2;
+  cursor: url(/public/cursor/custom-pointer.svg), pointer;
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper h1 {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 34px;
+  }
+}/*# sourceMappingURL=SwipeModal.module.css.map */

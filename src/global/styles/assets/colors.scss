@@ -1,0 +1,15 @@
+// basic colors
+
+$body-color: #F4F7FE;
+
+$white-color: #FFFFFF;
+$black-color: #000000;
+$grey-color: #959CA9;
+$blue-color: #2451B2;
+
+// 
+
+:export {
+    white-color: $white-color;
+    blue-color: $blue-color;
+}

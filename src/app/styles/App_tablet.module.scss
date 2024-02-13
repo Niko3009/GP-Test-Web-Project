@@ -1,0 +1,21 @@
+@import '../../global/styles/assets/all.scss';
+
+@media #{$tablet} {
+    .wrapper {
+        padding: 40px 10px;
+    }
+
+    .table-window {
+        padding: 80px 20px;
+    }
+}
+
+@media #{$desktop} {
+    .wrapper {
+        padding: 40px 80px;
+    }
+
+    .table-window {
+        padding: 80px 160px;
+    }
+}

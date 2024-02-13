@@ -1,0 +1,25 @@
+@mixin transition($transition-time) {
+
+    &,
+    & * {
+        transition: all $transition-time;
+    }
+}
+
+@mixin disable-interaction {
+
+    &,
+    & * {
+        user-select: none;
+        touch-action: none;
+        pointer-events: none;
+    }
+}
+
+@mixin mouse-hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+}

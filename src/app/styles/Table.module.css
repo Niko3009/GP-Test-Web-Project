@@ -1,0 +1,104 @@
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  white-color: #FFFFFF;
+  blue-color: #2451B2;
+}
+
+.table-window__table {
+  flex-grow: 1;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  overflow-x: auto;
+}
+.table-window__table-titles {
+  height: auto;
+  width: 100%;
+  min-width: 600px;
+}
+.table-window__table-titles-row {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  display: grid;
+  grid-template-columns: 123fr 123fr 884fr 166fr 142fr;
+  background-color: #2451B2;
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+}
+.table-window__table-titles-cell {
+  min-width: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.table-window__table-titles-filter-icon {
+  height: 100%;
+  width: 40px;
+  min-width: 40px;
+}
+.table-window__table-content {
+  position: relative;
+  width: 100%;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  border: 1px solid #959CA9;
+  overflow-y: scroll;
+}
+.table-window__table-content-row {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  display: grid;
+  grid-template-columns: 123fr 123fr 884fr 166fr 142fr;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  cursor: url(/public/cursor/custom-pointer.svg), pointer;
+  transition: all 500ms;
+}
+@media (hover: hover) {
+  .table-window__table-content-row:hover {
+    filter: brightness(0.95);
+    box-shadow: inset 0 0 4px #000000;
+  }
+}
+.table-window__table-content-cell {
+  min-width: 140px;
+  border: 1px solid #959CA9;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.table-window__table-content .status-cell {
+  color: #FFFFFF;
+}
+.table-window__table-content .status-cell.waiting {
+  background-color: #959CA9;
+}
+.table-window__table-content .status-cell.processing {
+  background-color: #FF9900;
+}
+.table-window__table-content .status-cell.ready {
+  background-color: #33AD31;
+}/*# sourceMappingURL=Table.module.css.map */

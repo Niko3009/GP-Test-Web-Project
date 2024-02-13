@@ -1,0 +1,62 @@
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  white-color: #FFFFFF;
+  blue-color: #2451B2;
+}
+
+:export {
+  hiding-duration-ms: 500;
+}
+
+.wrapper {
+  z-index: 10;
+}
+.wrapper.smoothly-transition {
+  transition: all 500ms;
+}
+.wrapper.covered {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+}
+.wrapper.covered, .wrapper.covered * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  touch-action: none;
+  pointer-events: none;
+}
+.wrapper.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.wrapper.hidden, .wrapper.hidden * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  touch-action: none;
+  pointer-events: none;
+}
+.wrapper.opacity {
+  opacity: 0;
+}
+.wrapper.opacity, .wrapper.opacity * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  touch-action: none;
+  pointer-events: none;
+}/*# sourceMappingURL=CoverBox.module.css.map */

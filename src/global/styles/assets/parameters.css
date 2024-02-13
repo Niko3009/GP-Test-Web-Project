@@ -1,0 +1,5 @@
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}/*# sourceMappingURL=parameters.css.map */

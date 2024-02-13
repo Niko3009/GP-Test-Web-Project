@@ -1,0 +1,33 @@
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  mobile: "only screen and ( min-width: 420px)";
+  tablet: "only screen and (min-width: 768px)";
+  desktop: "only screen and (min-width: 1440px)";
+}
+
+:export {
+  white-color: #FFFFFF;
+  blue-color: #2451B2;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    padding: 40px 10px;
+  }
+  .table-window {
+    padding: 80px 20px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    padding: 40px 80px;
+  }
+  .table-window {
+    padding: 80px 160px;
+  }
+}/*# sourceMappingURL=App_tablet.module.css.map */
