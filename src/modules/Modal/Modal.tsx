@@ -10,21 +10,19 @@ import SwipeModal from './SwipeModal'
 
 import styles from './styles/Modal.module.css'
 
-interface Props {
-    children: React.ReactNode
-    isModalOpen: boolean
-    setModalOpen: (state: boolean) => any | void
-    type?: string
-    callbackControl?: (control?: any) => any | void
-}
-
 export default function CustomModal({
     children,
     isModalOpen,
     setModalOpen,
     type,
     callbackControl = (control) => control,
-}: Props) {
+}: {
+    children: React.ReactNode
+    isModalOpen: boolean
+    setModalOpen: (state: boolean) => any | void
+    type?: string
+    callbackControl?: (control?: any) => any | void
+}) {
     const [isOverlayHidden, setOverlayHidden] = useState(true)
 
     const isTabletMode = useMediaQuery('tablet')

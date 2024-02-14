@@ -3,12 +3,13 @@ import { GrClose } from 'react-icons/gr'
 
 import styles from './Cross.module.css'
 
-interface Props {
+export default function Cross({
+    styleClass = 'blue',
+    className,
+}: {
     styleClass?: string
     className?: string
-}
-
-export default function Cross({ styleClass = 'blue', className }: Props) {
+}) {
     const outerClassName: string = className
     return (
         <div className={styles.wrapper}>
