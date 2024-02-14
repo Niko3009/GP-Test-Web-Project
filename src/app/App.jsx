@@ -23,10 +23,11 @@ export function TableWindow({ btnTestId }) {
     const [isAppealFormOpen, setAppealFormOpen] = useState()
     const addAppeal = () => setAppealFormOpen(true)
 
-    const postNewAppeal = (appealData) => {
+    const postNewAppeal = async (appealData) => {
         const postData = { ...appealData }
         postData.date = new Date()
-        postNewAppealMutation(postData)
+        const postResult = await postNewAppealMutation(postData)
+        return postResult
     }
 
     return (

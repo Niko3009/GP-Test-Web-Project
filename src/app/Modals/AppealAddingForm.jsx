@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import getDate from 'date-and-time'
 import classNames from 'classnames'
 import Modal from 'modules/Modal'
-import { availableTypes } from 'app/assets'
+import { Label, Text, optionTypes } from './components'
 
 import checkFormValidation from './funcs/checkFormValidation'
 
@@ -26,21 +26,26 @@ export default function AppealAddingForm({
     const [isTypeError, setTypeError] = useState(false)
     const [isDescriptionError, setDescriptionError] = useState(false)
 
+    const [postError, setPostError] = useState(false)
+
     const newAppealData = {
         autor: autorValue,
         type: typeValue,
         description: descriptionValue,
     }
 
-    const approveAppealData = () => {
+    const approveAppealData = async () => {
         const formValidationError = checkFormValidation(newAppealData)
-        if (!formValidationError) {
-            callbackNewAppeal(newAppealData)
-            closeModal()
-        } else {
+        if (formValidationError) {
             if (formValidationError === 'type') setTypeError(true)
             if (formValidationError === 'autor') setAutorError(true)
             if (formValidationError === 'description') setDescriptionError(true)
+        } else {
+            const postResult = await callbackNewAppeal(newAppealData)
+            const status = postResult?.data?.status
+            const error = postResult?.data?.details
+            if (status === 'success') closeModal()
+            else setPostError(error || 'Ошибка отправки')
         }
     }
 
@@ -51,6 +56,7 @@ export default function AppealAddingForm({
         setAutorError(false)
         setTypeError(false)
         setDescriptionError(false)
+        setPostError('')
     }
 
     useEffect(() => {
@@ -138,30 +144,17 @@ export default function AppealAddingForm({
 
                 <button
                     className={styles['modal-button']}
-                    onClick={() => approveAppealData()}
+                    onClick={() => {
+                        setPostError('')
+                        approveAppealData()
+                    }}
                 >
                     {'Отправить'}
                 </button>
+
+                <Label>{postError}</Label>
             </div>
         </Modal>
     )
 }
 export { AppealAddingForm }
-
-function Label({ children }) {
-    return (
-        <div className={styles['modal-label']}>
-            <p>{children}</p>
-        </div>
-    )
-}
-
-function Text({ children }) {
-    return (
-        <div className={styles['modal-text']}>
-            <p>{children}</p>
-        </div>
-    )
-}
-
-const optionTypes = Object.entries(availableTypes)

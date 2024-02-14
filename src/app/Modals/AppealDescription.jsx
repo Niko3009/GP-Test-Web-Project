@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { availableTypes } from 'app/assets'
 import Modal from 'modules/Modal'
+import { Label, Text } from './components'
 
 import styles from './styles/Modals.module.css'
 
@@ -49,19 +50,3 @@ export default function AppealDescription({
     )
 }
 export { AppealDescription }
-
-function Label({ children }) {
-    return (
-        <div className={styles['modal-label']}>
-            <p>{children}</p>
-        </div>
-    )
-}
-
-function Text({ children }) {
-    return (
-        <div className={styles['modal-text']}>
-            <p>{children}</p>
-        </div>
-    )
-}
