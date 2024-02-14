@@ -47,10 +47,7 @@ export default function SwipeModal({
 export { SwipeModal }
 
 export function Tap({ closeModalWithSwipe }) {
-    const { ref } = useSwipeable({
-        preventDefaultTouchmoveEvent: true,
-        onSwipedDown: () => closeModalWithSwipe(),
-    })
+    const { ref } = useSwipeable({ onSwipedDown: () => closeModalWithSwipe() })
 
     return (
         <div
@@ -61,4 +58,4 @@ export function Tap({ closeModalWithSwipe }) {
     )
 }
 
-export const windowHidingDurationInMS = styles['hiding-duration-ms']
+export const windowHidingDurationInMS = Number(styles['hiding-duration-ms'])

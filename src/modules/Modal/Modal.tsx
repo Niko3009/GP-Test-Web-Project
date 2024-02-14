@@ -2,7 +2,7 @@
 
 import Wrapper from 'react-modal'
 import classNames from 'classnames'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import useMediaQuery from 'global/hooks/useMediaQuery'
 
 import WindowModal from './WindowModal'
@@ -10,13 +10,21 @@ import SwipeModal from './SwipeModal'
 
 import styles from './styles/Modal.module.css'
 
+interface Props {
+    children: React.ReactNode
+    isModalOpen: boolean
+    setModalOpen: (state: boolean) => any | void
+    type?: string
+    callbackControl?: (control?: any) => any | void
+}
+
 export default function CustomModal({
     children,
     isModalOpen,
     setModalOpen,
     type,
-    callbackControl = () => {},
-}) {
+    callbackControl = (control) => control,
+}: Props) {
     const [isOverlayHidden, setOverlayHidden] = useState(true)
 
     const isTabletMode = useMediaQuery('tablet')
@@ -56,4 +64,4 @@ export default function CustomModal({
 }
 export { CustomModal as Modal }
 
-export const overlayHidingDurationInMS = styles['hiding-duration-ms']
+export const overlayHidingDurationInMS = Number(styles['hiding-duration-ms'])

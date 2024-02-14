@@ -17,10 +17,10 @@ export default function App() {
     )
 }
 
-export function TableWindow({ btnTestId }) {
+export function TableWindow({ btnTestId }: { btnTestId?: number }) {
     const [postNewAppealMutation] = usePostNewAppealMutation()
 
-    const [isAppealFormOpen, setAppealFormOpen] = useState()
+    const [isAppealFormOpen, setAppealFormOpen] = useState<boolean>()
     const addAppeal = () => setAppealFormOpen(true)
 
     const postNewAppeal = async (appealData) => {

@@ -29,7 +29,8 @@
         "ecmaFeatures": { "jsx": true }
     },
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-filename-extension": "off",
+        // "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
         "react/react-in-jsx-scope": "off",
         "react/jsx-pascal-case": 0,
 

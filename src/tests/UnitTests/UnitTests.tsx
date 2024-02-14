@@ -19,7 +19,7 @@ function ControlPanelTest() {
 
     describe('Appeal adding control callback tests', () => {
         it('should set appeal adding button', async () => {
-            render(<ControlPanel />)
+            render(<ControlPanel addAppeal={cb} btnTestId={testId} />)
             const btn = await screen.findByText('+ создать обращение')
             expect(btn).toBeInTheDocument()
         })

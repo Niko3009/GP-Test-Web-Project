@@ -4,17 +4,19 @@ import env from 'global/config/environment'
 
 const baseUrl = env.REACT_APP_API_URL
 const headers = { 'Content-type': 'application/json' }
-const appealsTag = { type: 'APPEALS', id: 'LIST' }
+
+const appealsTag: any = { type: 'APPEALS', id: 'LIST' }
+type Response = any[]
 
 export const api = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
-        getAllAppeals: builder.query({
+        getAllAppeals: builder.query<Response, void>({
             query: () => ({ url: '/appeals', headers }),
-            providesTags: (result) => getTags(result?.data),
+            providesTags: (result: any) => getTags(result?.data),
         }),
-        postNewAppeal: builder.mutation({
+        postNewAppeal: builder.mutation<Response, void>({
             query: (body) => {
                 return { url: '/appeals/add', method: 'POST', body, headers }
             },

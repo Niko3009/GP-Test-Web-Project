@@ -21,7 +21,13 @@ export function TableTitle({ children, name, setSort, sort }) {
     )
 }
 
-export function TableCell({ children, className }) {
+export function TableCell({
+    children,
+    className,
+}: {
+    children: React.ReactNode
+    className?: string
+}) {
     return (
         <div
             className={classNames(styles['table-window__table-content-cell'], {

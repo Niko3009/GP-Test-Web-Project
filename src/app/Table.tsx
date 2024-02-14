@@ -16,7 +16,9 @@ export default function Table() {
     const { data, error, isSuccess, isError, isLoading } =
         useGetAllAppealsQuery()
 
-    const list = data?.data || []
+    const responceData: any = data
+    const responceError: any = error
+    const list: any[] = responceData?.data || []
 
     const sortedList = sortList(list, sort)
 
@@ -61,7 +63,7 @@ export default function Table() {
                     <>
                         <QueryMessage>{'Ошибка загрузки'}</QueryMessage>
                         <QueryMessage>
-                            {JSON.stringify(error?.error)}
+                            {JSON.stringify(responceError?.error)}
                         </QueryMessage>
                     </>
                 )}
@@ -72,12 +74,14 @@ export default function Table() {
 export { Table }
 
 function TableContentRow({ data }) {
-    const [isAppealDescriptionOpen, setAppealDescriptionOpen] = useState()
+    const [isAppealDescriptionOpen, setAppealDescriptionOpen] =
+        useState<boolean>()
+
     const date = new Date(data?.date)
-    const formatDate =
-        date !== 'Invalid Date'
-            ? getDate.format(date, 'DD.MM.YYYY')
-            : 'Неизвестная дата'
+    const isDateValid = !isNaN(Date.parse(data?.date))
+    const formatDate = isDateValid
+        ? getDate.format(date, 'DD.MM.YYYY')
+        : 'Неизвестная дата'
 
     return (
         <>

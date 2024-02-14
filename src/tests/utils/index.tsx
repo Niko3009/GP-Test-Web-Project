@@ -20,7 +20,7 @@ export const setupApiStore = (api, extraReducers, withoutListeners) => {
     const refObj = {
         api,
         store: initialStore,
-        wrapper: withStoreProvider(initialStore),
+        wrapper: <></>,
     }
 
     let cleanupListeners
@@ -28,7 +28,7 @@ export const setupApiStore = (api, extraReducers, withoutListeners) => {
     beforeEach(() => {
         const store = getStore()
         refObj.store = store
-        refObj.wrapper = withStoreProvider(store)
+        refObj.wrapper = <></>
 
         if (!withoutListeners) {
             cleanupListeners = setupListeners(store.dispatch)

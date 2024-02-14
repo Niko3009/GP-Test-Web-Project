@@ -26,7 +26,7 @@ export default function AppealAddingForm({
     const [isTypeError, setTypeError] = useState(false)
     const [isDescriptionError, setDescriptionError] = useState(false)
 
-    const [postError, setPostError] = useState(false)
+    const [postError, setPostError] = useState('')
 
     const newAppealData = {
         autor: autorValue,

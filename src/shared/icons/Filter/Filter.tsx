@@ -3,8 +3,13 @@ import { FiFilter } from 'react-icons/fi'
 
 import styles from './Filter.module.scss'
 
-export default function Filter({ styleClass = 'blue', className }) {
-    const outerClassName = className
+interface Props {
+    styleClass?: string
+    className?: string
+}
+
+export default function Filter({ styleClass = 'blue', className }: Props) {
+    const outerClassName: string = className
     return (
         <div className={styles.wrapper}>
             <FiFilter

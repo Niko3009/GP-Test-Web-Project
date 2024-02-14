@@ -1,4 +1,4 @@
-import slices from '@/store/slices'
+import slices from 'store/slices'
 
 export const getStore = (store) => {
     return store

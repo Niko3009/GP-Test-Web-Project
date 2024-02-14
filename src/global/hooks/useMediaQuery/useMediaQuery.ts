@@ -6,7 +6,7 @@ import breakpoints from './breakpoints.module.scss'
 
 const { tablet, desktop } = breakpoints
 
-export default function useCustomQuery(mode) {
+export default function useCustomQuery(mode: string) {
     const availableModes = { tablet, desktop }
     const isModeAvailable = !!availableModes[mode]
 
