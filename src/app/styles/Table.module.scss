@@ -96,8 +96,11 @@ $table-grid-template-columns: 123fr 123fr 884fr 166fr 142fr;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      }
 
+        &.description {
+          align-items: flex-start;
+        }
+      }
 
       & .status-cell {
         color: $white-color ;

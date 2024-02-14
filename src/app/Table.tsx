@@ -91,7 +91,9 @@ function TableContentRow({ data }) {
             >
                 <TableCell>{formatDate}</TableCell>
                 <TableCell>{data?.autor}</TableCell>
-                <TableCell>{data?.description}</TableCell>
+                <TableCell className={styles.description}>
+                    {data?.description}
+                </TableCell>
                 <TypeTableCell type={data?.type} />
                 <StatusTableCell status={data?.status} />
             </div>
