@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import getDate from 'date-and-time'
 import classNames from 'classnames'
-import { availableTypes } from 'app/assets'
 import Modal from 'modules/Modal'
+import { availableTypes } from 'app/assets'
+
+import checkFormValidation from './funcs/checkFormValidation'
 
 import styles from './styles/Modals.module.css'
 
@@ -18,11 +20,12 @@ export default function AppealAddingForm({
 
     const [autorValue, setAutorValue] = useState('')
     const [typeValue, setTypeValue] = useState('')
-    const [descriptionValue, setDescriptionValue] = useState()
+    const [descriptionValue, setDescriptionValue] = useState('')
 
-    const optionTypes = Object.entries(availableTypes)
+    const [isAutorError, setAutorError] = useState(false)
+    const [isTypeError, setTypeError] = useState(false)
+    const [isDescriptionError, setDescriptionError] = useState(false)
 
-    const nowDate = getDate.format(new Date(), 'DD.MM.YYYY')
     const newAppealData = {
         autor: autorValue,
         type: typeValue,
@@ -30,9 +33,29 @@ export default function AppealAddingForm({
     }
 
     const approveAppealData = () => {
-        callbackNewAppeal(newAppealData)
-        closeModal()
+        const formValidationError = checkFormValidation(newAppealData)
+        if (!formValidationError) {
+            callbackNewAppeal(newAppealData)
+            closeModal()
+        } else {
+            if (formValidationError === 'type') setTypeError(true)
+            if (formValidationError === 'autor') setAutorError(true)
+            if (formValidationError === 'description') setDescriptionError(true)
+        }
     }
+
+    const resetAppealData = () => {
+        setAutorValue('')
+        setTypeValue('')
+        setDescriptionValue('')
+        setAutorError(false)
+        setTypeError(false)
+        setDescriptionError(false)
+    }
+
+    useEffect(() => {
+        if (!isAppealFormOpen) resetAppealData()
+    }, [isAppealFormOpen])
 
     return (
         <Modal
@@ -43,25 +66,44 @@ export default function AppealAddingForm({
             <div className={classNames(styles.wrapper)}>
                 <div className={styles['modal-string']}>
                     <Label>{'Дата'}</Label>
-                    <Text>{nowDate}</Text>
+                    <Text>{getDate.format(new Date(), 'DD.MM.YYYY')}</Text>
                 </div>
 
                 <div className={styles['modal-string']}>
                     <Label>{'Автор'}</Label>
                     <input
-                        className={styles['modal-input']}
+                        className={classNames(
+                            styles['modal-field'],
+                            styles['modal-input'],
+                            {
+                                [styles.error]: isAutorError,
+                            }
+                        )}
                         placeholder={'Введите имя'}
                         value={autorValue}
-                        onChange={({ target }) => setAutorValue(target.value)}
+                        onChange={({ target }) => {
+                            setAutorError(false)
+                            setAutorValue(target.value)
+                        }}
                     />
                 </div>
 
                 <div className={styles['modal-string']}>
                     <Label>{'Тип обращения'}</Label>
                     <select
-                        className={styles['modal-select']}
+                        className={classNames(
+                            styles['modal-field'],
+                            styles['modal-select'],
+                            {
+                                [styles.error]: isTypeError,
+                                [styles.filled]: typeValue,
+                            }
+                        )}
                         value={typeValue}
-                        onChange={({ target }) => setTypeValue(target.value)}
+                        onChange={({ target }) => {
+                            setTypeError(false)
+                            setTypeValue(target.value)
+                        }}
                     >
                         <option value={''} hidden>
                             Выберите тип
@@ -79,10 +121,19 @@ export default function AppealAddingForm({
                 </div>
 
                 <textarea
-                    className={styles['modal-textarea']}
                     placeholder={'Добавьте описание'}
                     value={descriptionValue}
-                    onChange={({ target }) => setDescriptionValue(target.value)}
+                    onChange={({ target }) => {
+                        setDescriptionError(false)
+                        setDescriptionValue(target.value)
+                    }}
+                    className={classNames(
+                        styles['modal-field'],
+                        styles['modal-textarea'],
+                        {
+                            [styles.error]: isDescriptionError,
+                        }
+                    )}
                 />
 
                 <button
@@ -112,3 +163,5 @@ function Text({ children }) {
         </div>
     )
 }
+
+const optionTypes = Object.entries(availableTypes)

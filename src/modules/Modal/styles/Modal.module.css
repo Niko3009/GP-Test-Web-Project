@@ -25,7 +25,7 @@
   height: 100%;
   width: 100%;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5019607843);
+  background-color: rgba(0, 0, 0, 0.2509803922);
   transition: all 500ms;
   overflow: hidden;
 }

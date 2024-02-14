@@ -37,6 +37,9 @@
   align-content: center;
   gap: 12px;
 }
+.modal-field.error {
+  border-bottom: 2px solid #ff7818;
+}
 .modal-label {
   font-style: normal;
   font-weight: 700;
@@ -80,7 +83,7 @@
 .modal-select {
   color: #6B7280;
 }
-.modal-select.checked {
+.modal-select.filled {
   color: #000000;
 }
 .modal-select option:first-of-type {

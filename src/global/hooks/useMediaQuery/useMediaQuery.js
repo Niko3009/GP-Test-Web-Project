@@ -10,7 +10,7 @@ export default function useCustomQuery(mode) {
     const availableModes = { tablet, desktop }
     const isModeAvailable = !!availableModes[mode]
 
-    const query = JSON.parse(isModeAvailable ? availableModes[mode] : '')
+    const query = JSON.parse(isModeAvailable ? availableModes[mode] : '""')
     const isCurrentMode = useMediaQuery({ query })
 
     const response = isModeAvailable ? isCurrentMode : null

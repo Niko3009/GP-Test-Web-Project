@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Provider } from 'store'
+import Provider from 'store/Provider'
 import { usePostNewAppealMutation } from 'store/api'
 import AppealAddingForm from './Modals/AppealAddingForm'
 import Table from './Table'
@@ -17,9 +17,11 @@ export default function App() {
     )
 }
 
-function TableWindow() {
-    const [isAppealFormOpen, setAppealFormOpen] = useState()
+export function TableWindow({ btnTestId }) {
     const [postNewAppealMutation] = usePostNewAppealMutation()
+
+    const [isAppealFormOpen, setAppealFormOpen] = useState()
+    const addAppeal = () => setAppealFormOpen(true)
 
     const postNewAppeal = (appealData) => {
         const postData = { ...appealData }
@@ -29,7 +31,7 @@ function TableWindow() {
 
     return (
         <div className={styles['table-window']}>
-            <ControlPanel controlActions={{ setAppealFormOpen }} />
+            <ControlPanel addAppeal={addAppeal} btnTestId={btnTestId} />
             <Table />
 
             <AppealAddingForm
@@ -40,14 +42,13 @@ function TableWindow() {
     )
 }
 
-function ControlPanel({ controlActions }) {
-    const { setAppealFormOpen } = controlActions
-    const addAppeal = () => setAppealFormOpen(true)
+export function ControlPanel({ addAppeal, btnTestId }) {
     return (
         <div className={styles['table-window__control-panel']}>
             <p
                 className={styles['table-window__control-action']}
                 onClick={() => addAppeal()}
+                data-testid={btnTestId}
             >
                 {'+ создать обращение'}
             </p>
